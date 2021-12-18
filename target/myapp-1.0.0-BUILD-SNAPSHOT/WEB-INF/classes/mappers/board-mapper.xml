@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Board">
+
+	<insert id="insertBoard">
+		Insert into Community
+		(yangdo,category,address,startdate,enddate,price,openchatlink,writerid)
+		values
+		(#{yangdo},#{category},#{address},#{startdate},#{enddate},#{price},#{openchatlink},#{writerid})
+	</insert>
+
+	<insert id="insertBoard1">
+		Insert into Community
+		(yangdo,category,address,startdate,enddate,price,openchatlink)
+		values
+		(#{yangdo},#{category},#{address},#{startdate},#{enddate},#{price},#{openchatlink})
+	</insert>
+
+	<update id="updateBoard">
+		Update Community
+		set yangdo = #{yangdo}, category =
+		#{category}, address = #{address}, startdate = #{startdate}, enddate =
+		#{enddate}, price = #{price}, openchatlink = #{openchatlink}
+		where ID =
+		#{ID}
+	</update>
+
+	<delete id="deleteBoard">
+		delete from Community where ID = #{ID}
+	</delete>
+
+	<select id="getBoard" resultType="board">
+		select * from Community where
+		ID = #{ID}
+	</select>
+
+	<select id="getBoardList" resultType="board">
+		select * from Community
+		order by ID desc
+	</select>
+</mapper>
